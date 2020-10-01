@@ -1,4 +1,4 @@
-# Open Vantage React and Graphql assement
+# Open Vantage React and Graphql assessment
 
 #### Goal
 This assessment is to provide a candidate with the opportunity to show their skill in building with  React and a Graphql API.

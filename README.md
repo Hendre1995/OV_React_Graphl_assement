@@ -1,7 +1,7 @@
 # Open Vantage React and Graphql assessment
 
 #### Goal
-This assessment is to provide a candidate with the opportunity to show their skill in building with  React and a Graphql API.
+This assessment is to provide a candidate with the opportunity to show their skill in building with  React and a Graphql API.
 
 ## How do I get set up? ##
 
@@ -14,7 +14,7 @@ The API is modeled on a basic ordering system with two parts;
 
 The basic user stories would be as follow:
 
-*As a client, I can view a list of products with detail information and images regarding the said product. I would like to make an order of items and view my orders.*
+*As a client, I can view a list of products with detailed information and images regarding the said product. I would like to make an order of items and view my orders.*
 
 *As an admin of the system I can create products and input their details, I would need to put certain items in an inactive state which would not allow clients to order them.*
 
@@ -23,8 +23,8 @@ The basic user stories would be as follow:
 ### Tools provided ###
 The graphql endpoint is live:
 
-  HTTP:  https://eu1.prisma.sh/frikan-erwee/ov-assesment-shop-prisma/dev
-  WS:    wss://eu1.prisma.sh/frikan-erwee/ov-assesment-shop-prisma/dev
+  HTTP:  https://eu1.prisma.sh/frikan-erwee/ov-assesment-shop-prisma/dev
+  WS:    wss://eu1.prisma.sh/frikan-erwee/ov-assesment-shop-prisma/dev
 
 #### Minimal Requirements
 **The following are constraints of the assessment:**
@@ -42,5 +42,5 @@ The graphql endpoint is live:
 * Follow up questions may be asked regarding your code.
 
 
-## Whom do I talk to if I need help? ##
+## Who do I talk to if I need help? ##
 * frikan.erwee@openvantage.co.za

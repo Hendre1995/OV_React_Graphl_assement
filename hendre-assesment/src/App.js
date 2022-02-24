@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { GraphQLClient, ClientContext } from 'graphql-hooks'
 import Login from './pages/LoginPage/LoginPage';
+import { Route, Routes } from 'react-router-dom';
+import AdminPage from './AdminPage';
 
 
 const client = new GraphQLClient({
@@ -11,10 +13,12 @@ const client = new GraphQLClient({
 function App() {
   return (
     <ClientContext.Provider value={client}>
-      <Login />
+      <Routes>
+        <Route path='login' element={<Login/>} />
+        <Route path='admin' element={<AdminPage/>} />
+      </Routes>
     </ClientContext.Provider>
   )
 }
-
 
 export default App;

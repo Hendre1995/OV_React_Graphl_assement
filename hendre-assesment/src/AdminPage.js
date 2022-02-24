@@ -1,2 +1,7 @@
 import React from 'react';
-import { useQuery } from 'graphql-hooks'
+
+const AdminPage = ()=>{ 
+    return(<h1>welcome to admin_</h1>)
+}
+
+export default AdminPage;

@@ -61,14 +61,14 @@ const ProductPage = () => {
     if (inCart.includes(productId)){
       setInCart(inCart.filter(item => item !== productId))
       return null}
-    setInCart((prevInCart) => [...prevInCart, productId])
-    
+    setInCart((prevInCart) => [...prevInCart, productId])}
+  const handleCart=()=>{
+    setInCart([])
   }
-
-
-  return (
+  
+return (
     <>
-    <button>{inCart.length} Place Order</button>
+    <button onClick={handleCart} className={"fixedOderButton"}>{inCart.length} Place Order</button>
       <NavButtons />
       {products.map((product) => (
         <ProductsList

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate()
   const handleLogin = () => {
-    navigate('/ClientPage')
+    navigate('/product')
   }
   return (
     <div className="container">

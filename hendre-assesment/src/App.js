@@ -4,7 +4,7 @@ import { GraphQLClient, ClientContext } from 'graphql-hooks'
 import Login from './pages/LoginPage/LoginPage';
 import { Route, Routes } from 'react-router-dom';
 import AdminPage from './AdminPage';
-import ClientPage from './ClientPage';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 
 const client = new GraphQLClient({
@@ -15,9 +15,10 @@ function App() {
   return (
     <ClientContext.Provider value={client}>
       <Routes>
-        <Route path='ClientPage' element={<ClientPage/>}/>
-        <Route path='login' element={<Login/>} />
-        <Route path='admin' element={<AdminPage/>} />
+
+        <Route path='product' element={<ProductPage />} />
+        <Route path='login' element={<Login />} />
+        <Route path='admin' element={<AdminPage />} />
       </Routes>
     </ClientContext.Provider>
   )

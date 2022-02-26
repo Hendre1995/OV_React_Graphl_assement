@@ -15,7 +15,7 @@ function App() {
   return (
     <ClientContext.Provider value={client}>
       <Routes>
-
+       <Route path='oder' element={<ProductPage />} />
         <Route path='product' element={<ProductPage />} />
         <Route path='login' element={<Login />} />
         <Route path='admin' element={<AdminPage />} />

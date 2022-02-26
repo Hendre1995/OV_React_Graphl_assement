@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../App.css'
 import { useState } from "react";
+import NavButtons from '../../components/NavButtons/NavButtons';
+
 
 
 
@@ -52,7 +54,8 @@ const ProductsList = (props) => {
   )
 }
 
-const ProductsPage = () => {
+
+const ProductPage = () => {
   const [inCart, setInCart] = useState([]);
   const addToCart = (productId) => {
     setInCart((prevInCart) => [...prevInCart, productId]);
@@ -61,10 +64,7 @@ const ProductsPage = () => {
 
   return (
     <>
-      <div className="container1">
-        <button >products</button>
-        <button>oders</button>
-      </div>
+      <NavButtons />
       {products.map((product) => (
         <ProductsList
           onClick={() => addToCart(product.id)}
@@ -77,11 +77,5 @@ const ProductsPage = () => {
     </>);
 }
 
-const ClientPage = () => {
-  return (
-    <div>
-      <ProductsPage />
-    </div>
-  )
-}
-export default ClientPage;
+
+export default ProductPage;

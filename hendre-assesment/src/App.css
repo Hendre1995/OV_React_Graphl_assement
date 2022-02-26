@@ -3,6 +3,7 @@ body{
   margin:0;
   padding:0;
   box-sizing:border-box;
+  align-content:center;
   color:rgb(233, 57, 57);
 }
 
@@ -24,7 +25,24 @@ body{
       opacity:0.8;
       border-radius:2%;
   }
-
+  .Product-box{
+    background:linear-gradient(to top, rgb(8, 12, 211), white);
+    display:flex;
+    
+    width:800px;
+    height:450px;
+    padding:20px;
+    opacity:0.8;
+    border-radius:2%;
+    box-sizing:border-box; 
+  }
+.container1{
+  display:flex;
+    align-items:center;
+    justify-content:center;
+    height:50vh;
+    width:100%;
+}
 button{
   width:130px;
   height: 80px;
@@ -36,4 +54,15 @@ button{
   height:50px ;
   margin-top:30px ;
   margin-left:60px ;
+}
+.button-disply{
+  
+  height:40px;
+  width: 150px;
+  border:2px;
+  background-color:rgb(77, 149, 231);
+  margin-right:120px ;
+  margin-top:200px ;
+ 
+  
 }

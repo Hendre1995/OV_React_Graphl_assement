@@ -58,12 +58,17 @@ const ProductsList = (props) => {
 const ProductPage = () => {
   const [inCart, setInCart] = useState([]);
   const addToCart = (productId) => {
-    setInCart((prevInCart) => [...prevInCart, productId]);
+    if (inCart.includes(productId)){
+      setInCart(inCart.filter(item => item !== productId))
+      return null}
+    setInCart((prevInCart) => [...prevInCart, productId])
+    
   }
 
 
   return (
     <>
+    <button>{inCart.length} Place Order</button>
       <NavButtons />
       {products.map((product) => (
         <ProductsList

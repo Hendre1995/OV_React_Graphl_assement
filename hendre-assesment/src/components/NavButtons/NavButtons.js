@@ -6,9 +6,12 @@ const NavButtons = () => {
   const navProduct = () => {
     navigate('/product')
   }
-  return (<div className="container1">
+  const navOrders = () => {
+    navigate('/orders')
+  }
+  return (<div className="container1 stickyButtons">
     <button onClick={navProduct}>products</button>
-    <button>orders</button>
+    <button onClick={navOrders}> orders</button>
   </div>)
 }
 

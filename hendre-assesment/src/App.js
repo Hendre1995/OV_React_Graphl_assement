@@ -5,6 +5,7 @@ import Login from './pages/LoginPage/LoginPage';
 import { Route, Routes } from 'react-router-dom';
 import AdminPage from './AdminPage';
 import ProductPage from './pages/ProductPage/ProductPage';
+import OrdersPage from './pages/OrdersPage/OrdersPage';
 
 
 const client = new GraphQLClient({
@@ -15,7 +16,7 @@ function App() {
   return (
     <ClientContext.Provider value={client}>
       <Routes>
-       <Route path='oder' element={<ProductPage />} />
+       <Route path='orders' element={<OrdersPage />} />
         <Route path='product' element={<ProductPage />} />
         <Route path='login' element={<Login />} />
         <Route path='admin' element={<AdminPage />} />

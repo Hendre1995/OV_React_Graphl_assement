@@ -63,6 +63,10 @@ button{
   background-color:rgb(77, 149, 231);
   margin-right:120px ;
   margin-top:200px ;
- 
-  
-}
+ }
+
+ .stickyButtons{
+   top:0;
+   position:sticky;
+   z-index: 1;
+ }

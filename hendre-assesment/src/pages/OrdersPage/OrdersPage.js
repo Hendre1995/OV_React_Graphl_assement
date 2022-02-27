@@ -2,13 +2,13 @@ import { useQuery } from "graphql-hooks";
 import React from "react";
 import NavButtons from "../../components/NavButtons/NavButtons";
 
-const ORDERS_QUERY = `query orders($where:OrderWhereInput) {
-  orders(where:$where) {
+const ORDERS_QUERY = `query orders($userId: ID) {
+  orders(where: { orderer: { id: $userId } }) {
     id
     createdAt
     deliveryNote
     status
-    products{
+    products {
       id
       name
     }
@@ -35,12 +35,12 @@ const Order = (props) => {
 }
 
 const OrdersPage = () => {
+  const userId = window.localStorage.getItem("userId");
   const { loading, error, data } = useQuery(ORDERS_QUERY, {
-    variables: {
-      "where": { "status": "RECEIVED" }
+    variables:{
+      "userId":userId
     }
   })
-  const userId = window.localStorage.getItem("userId");
   if (loading) return 'Loading...'
   if (error) return 'Something Bad Happened'
 

@@ -1,4 +1,4 @@
-import { useManualQuery} from "graphql-hooks";
+import { useManualQuery, useMutation } from "graphql-hooks";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,9 +9,17 @@ const QUERY_USER = `query users($name:String){
   }
 }`
 
+const ADD_USER_MUTATION = `mutation createUser($userName:String!){
+  createUser(data:{name:$userName}){
+    name
+    id
+  }
+}`
+
 const Login = () => {
   const navigate = useNavigate()
   const [fetchUser, { loading }] = useManualQuery(QUERY_USER);
+  const [createUser] = useMutation(ADD_USER_MUTATION);
   const [userName, setUserName] = useState("")
 
   const handleLogin = () => {
@@ -24,9 +32,21 @@ const Login = () => {
       if (result.data.users.length > 0) {
         window.localStorage.setItem("userId", result.data.users[0].id);
         return navigate('/product');
+      } else {
+        //API slow...
+        setTimeout(() => {
+          createUser({
+            variables: {
+              "userName": userName
+            }
+          }).then((newUserResult) => {
+            if (!newUserResult.data) { return 'there have been an error' }
+            window.localStorage.setItem("userId", newUserResult.data.createUser.id);
+            return navigate('/product')
+          })
+        }, 3000)
       }
     })
-
   }
 
   if (loading) return 'Loading...'

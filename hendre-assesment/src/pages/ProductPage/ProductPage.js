@@ -41,6 +41,8 @@ const ProductPage = () => {
   const handleCart = () => {
     setInCart([])
   }
+  const userId = window.localStorage.getItem("userId");
+
   const { loading, error, data } = useQuery(PRODUCT_QUERY, {
     variables: {
       limit: 10
@@ -51,6 +53,7 @@ const ProductPage = () => {
 
   return (
     <>
+     <h1> Welcome to the Product page {userId}</h1>
       <button onClick={handleCart} className={"fixedOderButton"}>{inCart.length} Place Order</button>
       <NavButtons />
       {data.products.map((product) => (

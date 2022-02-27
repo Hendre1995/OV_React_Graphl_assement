@@ -40,12 +40,13 @@ const OrdersPage = () => {
       "where": { "status": "RECEIVED" }
     }
   })
+  const userId = window.localStorage.getItem("userId");
   if (loading) return 'Loading...'
   if (error) return 'Something Bad Happened'
 
   return (<div>
     <NavButtons />
-    <h1> Welcome to the Orders page </h1>
+    <h1> Welcome to the Orders page {userId}</h1>
     {data.orders.map((order) => (
       <Order
         key={order.id}

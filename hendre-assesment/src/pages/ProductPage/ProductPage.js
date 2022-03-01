@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css'
 import { useState } from "react";
 import NavButtons from '../../components/NavButtons/NavButtons';
-import { useQuery } from 'graphql-hooks';
+import { useMutation, useQuery } from 'graphql-hooks';
 
 const PRODUCT_QUERY = `query products{
   products{
@@ -12,6 +12,19 @@ const PRODUCT_QUERY = `query products{
     description
   }
 }`
+
+const CREATE_ORDER = `mutation createOder(
+  $orderer: UserCreateOneWithoutOrdersInput
+  $products: ProductCreateManyInput
+) {
+  createOrder(data: { orderer: $orderer, products: $products }) {
+    id
+    deliveryNote
+    status
+    createdAt
+  }
+}`
+
 
 const Product = (props) => {
   const { onClick, imageUrl, name, description, added } = props;
@@ -38,9 +51,7 @@ const ProductPage = () => {
     }
     setInCart((prevInCart) => [...prevInCart, productId])
   }
-  const handleCart = () => {
-    setInCart([])
-  }
+
   const userId = window.localStorage.getItem("userId");
 
   const { loading, error, data } = useQuery(PRODUCT_QUERY, {
@@ -48,12 +59,26 @@ const ProductPage = () => {
       limit: 10
     }
   })
+
+  const [createOder] = useMutation(CREATE_ORDER)
+  const handleCart = () => {
+    createOder({
+      variables: {
+        "orderer": { "connect": { "id": userId } },
+        "products": { "connect": inCart.map(product => ({ id: product })) }
+      }
+    }).then(() => {
+      setInCart([])
+    })
+
+  }
+
   if (loading) return 'Loading...'
   if (error) return 'Something Bad Happened'
 
   return (
     <>
-     <h1> Welcome to the Product page {userId}</h1>
+      <h1> Welcome to the Product page {userId}</h1>
       <button onClick={handleCart} className={"fixedOderButton"}>{inCart.length} Place Order</button>
       <NavButtons />
       {data.products.map((product) => (
